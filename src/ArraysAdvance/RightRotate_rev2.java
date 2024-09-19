@@ -2,25 +2,24 @@ package ArraysAdvance;
 
 import java.util.Arrays;
 
-public class LeftRotate {
-    public static void main(String[] args){
+public class RightRotate_rev2 {
+    public static void main(String[]args){
         int[] arr = {1,5,0,0,2};
         int d = 2;
         int n = arr.length;
 
 
-        System.out.println(Arrays.toString(Left(arr, d, n)));
+        System.out.println(Arrays.toString(Right(arr, d, n)));
     }
 
+    // 2 0 0 5 1 => reverse 0 to n - 1
+    // 0 2 0 5 1 => reverse 0 to d - 1
+    // 0 2 1 5 0 => reverse d to n - 1
+    public static int[] Right(int[] arr, int d , int n){
 
-
-    public static int[] Left(int[] arr, int d, int n){
-        reverse(arr, 0, d-1);
-        // 5 1 0 0 2
-        reverse(arr, d, n-1);
-        // 5 1 2 0 0
-        reverse(arr, 0, n-1);
-        // 0 0 2 1 5
+        reverse(arr, 0 , n-1);
+        reverse(arr, 0 , d-1);
+        reverse(arr, d , n-1);
 
         return arr;
     }
@@ -37,4 +36,6 @@ public class LeftRotate {
             high--;
         }
     }
+
+
 }
