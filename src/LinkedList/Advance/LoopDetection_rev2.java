@@ -1,17 +1,6 @@
 package LinkedList.Advance;
 
-
-class Node {
-    int data;
-    Node next;
-
-    public Node(int x){
-        data = x;
-        next = null;
-    }
-}
-
-public class ReverseLInkedListInGroup {
+public class LoopDetection_rev2 {
     public static void main(String[] args){
         Node_random head = new Node_random(10);
         Node_random temp1 = new Node_random(20);
@@ -25,5 +14,26 @@ public class ReverseLInkedListInGroup {
         temp2.next = temp3;
         temp3.next = temp4;
         temp4.next = head;
+
+        DetectLoop(head);
+
+    }
+
+    public static void DetectLoop(Node_random head){
+
+        Node_random slow = head;
+        Node_random fast = head;
+
+        while(fast !=null && fast.next!=null){
+            slow =slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                System.out.println("Cycle Detected");
+                return;
+            }
+
+        }
+
     }
 }
